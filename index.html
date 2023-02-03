@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-14 forever!</title>
+  <style>
+    /* 이서윤체 폰트 적용을 위한 코드 */
+    @font-face {
+      font-family: "LeeSeoyun";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* body태그 자체에 css 요소 부여 */
+    body {
+      font-family: "LeeSeoyun";
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-image: url("./background.png");
+    }
+
+    .container {
+      width: 390px;
+      background-color: #ff9d73;
+      height: 100%;
+    }
+
+    .photos {
+      margin-top: 30px;
+    }
+
+    .photo-frame {
+      background-color: white;
+      height: 200px;
+      margin: 15px 20px;
+
+      position: relative;
+
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .f-title {
+      color: white;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .f-date {
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    #image1 {
+      background-image: url("./img1.jpg");
+    }
+
+    #image2 {
+      background-image: url("./img2.jpg");
+    }
+
+    #image3 {
+      background-image: url("./img3.jpg");
+    }
+
+    #image5 {
+      background-image: url("./img5.jpg");
+    }
+
+    #image6 {
+      background-image: url("./img6.jpg");
+    }
+
+    #image7 {
+      background-image: url("./img7.jpg");
+    }
+
+    #image9 {
+      background-image: url("./img9.jpg");
+    }
+
+    #image10 {
+      background-image: url("./img10.jpeg");
+    }
+
+    #image11 {
+      background-image: url("./img11.jpg");
+    }
+
+    #image13 {
+      background-image: url("./img13.jpg");
+    }
+
+    #image14 {
+      background-image: url("./img14.jpg");
+    }
+
+    #image15 {
+      background-image: url("./img15.jpg");
+    }
+
+    .photo_description {
+      color: white;
+      background-color: black;
+
+      width: fit-content;
+      padding: 0 20px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+
+      position: absolute;
+      bottom: 0;
+      transform: translate(-50%) left 50%;
+
+      opacity: 0;
+    }
+
+    .video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .showText {
+      opacity: 0;
+    }
+
+    .hideText {
+      opacity: 1;
+      transition: opacity 0.5s linear;
+    }
+  </style>
+  <script>
+    // 텍스트가 보여지는 기능
+    // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+    // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+    function showText(number) {
+      if (number === 1) {
+        document.querySelector("#desc1").classList.remove("hideText");
+        document.querySelector("#desc1").classList.add("showText");
+      } else if (number === 2) {
+        document.querySelector("#desc2").classList.remove("hideText");
+        document.querySelector("#desc2").classList.add("showText");
+      } else if (number === 3) {
+        document.querySelector("#desc3").classList.remove("hideText");
+        document.querySelector("#desc3").classList.add("showText");
+      } else if (number === 5) {
+        document.querySelector("#desc5").classList.remove("hideText");
+        document.querySelector("#desc5").classList.add("showText");
+      } else if (number === 6) {
+        document.querySelector("#desc6").classList.remove("hideText");
+        document.querySelector("#desc6").classList.add("showText");
+      } else if (number === 7) {
+        document.querySelector("#desc7").classList.remove("hideText");
+        document.querySelector("#desc7").classList.add("showText");
+
+      } else if (number === 9) {
+        document.querySelector("#desc9").classList.remove("hideText");
+        document.querySelector("#desc9").classList.add("showText");
+      } else if (number === 10) {
+        document.querySelector("#desc10").classList.remove("hideText");
+        document.querySelector("#desc10").classList.add("showText");
+      } else if (number === 11) {
+        document.querySelector("#desc11").classList.remove("hideText");
+        document.querySelector("#desc11").classList.add("showText");
+      } else if (number === 13) {
+        document.querySelector("#desc13").classList.remove("hideText");
+        document.querySelector("#desc13").classList.add("showText");
+      } else if (number === 14) {
+        document.querySelector("#desc14").classList.remove("hideText");
+        document.querySelector("#desc14").classList.add("showText");
+      } else if (number === 15) {
+        document.querySelector("#desc15").classList.remove("hideText");
+        document.querySelector("#desc15").classList.add("showText");
+      } else {
+        document.querySelector("#desc1").classList.remove("hideText");
+        document.querySelector("#desc1").classList.add("showText");
+      }
+    }
+
+    // 텍스트가 감춰지는 기능
+    // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+    // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+    function hideText(number) {
+      if (number === 1) {
+        document.querySelector("#desc1").classList.remove("showText");
+        document.querySelector("#desc1").classList.add("hideText");
+      } else if (number === 2) {
+        document.querySelector("#desc2").classList.remove("showText");
+        document.querySelector("#desc2").classList.add("hideText");
+      } else if (number === 3) {
+        document.querySelector("#desc3").classList.remove("showText");
+        document.querySelector("#desc3").classList.add("hideText");
+      } else if (number === 5) {
+        document.querySelector("#desc5").classList.remove("showText");
+        document.querySelector("#desc5").classList.add("hideText");
+      } else if (number === 6) {
+        document.querySelector("#desc6").classList.remove("showText");
+        document.querySelector("#desc6").classList.add("hideText");
+      } else if (number === 7) {
+        document.querySelector("#desc7").classList.remove("showText");
+        document.querySelector("#desc7").classList.add("hideText");
+
+      } else if (number === 9) {
+        document.querySelector("#desc9").classList.remove("showText");
+        document.querySelector("#desc9").classList.add("hideText");
+      } else if (number === 10) {
+        document.querySelector("#desc10").classList.remove("showText");
+        document.querySelector("#desc10").classList.add("hideText");
+      } else if (number === 11) {
+        document.querySelector("#desc11").classList.remove("showText");
+        document.querySelector("#desc11").classList.add("hideText");
+
+      } else if (number === 13) {
+        document.querySelector("#desc13").classList.remove("showText");
+        document.querySelector("#desc13").classList.add("hideText");
+      } else if (number === 14) {
+        document.querySelector("#desc14").classList.remove("showText");
+        document.querySelector("#desc14").classList.add("hideText");
+      } else if (number === 15) {
+        document.querySelector("#desc15").classList.remove("showText");
+        document.querySelector("#desc15").classList.add("hideText");
+      } else {
+        document.querySelector("#desc3").classList.remove("showText");
+        document.querySelector("#desc3").classList.add("hideText");
+      }
+    }
+
+    // 클릭 기능
+    // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+    function alertText(number) {
+      if (number === 1) {
+        alert(`${number}번 : 유진이에게 \n 유진아! 작년 청바지에서 같은 동아리로 만나 같은 반이 되어서 너무 반갑구 재밌었어! \n 올해 같은 반이 된 친구들 중 모르는 사람들이 많아서 긴장했었거든,, \n 그나저나 너 너무 귀여운 거 아냐 ㅋㅋㅋ 왜 올해 첨 알았지 ㅋㅋㅋㅋ \n 널 보면 항상 웃었던 것 같아, 말하는 것도 재밌구 \n 크리스마스 때 네게 편지를 전하지 못해 아쉬웠는데, 이렇게라도 말할 수 있게 되어 다행이다..! \n 넌 꼭 잘 될 거야! 한 해 동안 즐거웠구, 고마웠어!`);
+      } else if (number === 2) {
+        alert(`${number}번 : 서연이에게 \n 서연아! ㅋㅋㅋㅋ 올 한 해 나랑 비슷한 연령대(?)(맞나(?))를 만나서 반가웠어 ㅋㅋㅋ \n 우리 새를 좋아하는 공통점이 있었구나! \n 아마 내년에 우리, 큰 일이 없으면 같은 반 될 것 같은데.. \n 그 때 너도 야자 하면 석식 같이 먹자! \n 경원이랑 티키타카가 벌써부터 기대돼 ㅋㅋㅋㅋ \n 올해 마음이 조금 힘들어 보였는데.. 그럴 땐 주변에 털어놓아도 정말 좋다는 말 해주고 싶어. 고생 많았어!`);
+      } else if (number === 3) {
+        alert(`${number}번 : 민주에게 \n 민주야! 너 왜캐 기여워ㅓㅓ! \n 우리 추운 날 야자를 복도에서 했던 일이 생각난다..ㅠㅠ 그 날 월드컵 시즌이라서 사람들이 많이 없었잖아! 그 때 같이 공부도 하고 좋았던 것 같아! >< 그래서인지 더더욱 헤어지기 너무 아쉽다 ㅠㅠㅠ \n 앗 그리고 민주 학기 중에 많이 아파서 마음이 아팠어.. 내년에는 건강했으면 좋겠다..ㅠㅠ \n 아프지 말고, 한 해 즐거웠어! \n 또 그동안 넌 좋은 사람같다는 생각을 많이 했던 것 같아 :)`);
+
+      } else if (number === 5) {
+        alert(`${number}번 : 가은이에게 \n 가은아! 도대체 너랑 왜 2학기 때 친해졌는지 모르겠어 ㅠㅠ 내가 낯을 가려서 그랬나.. 더 빨리 친해졌으면 좋았을 텐데.. \n 그동안 널 보면서 정말 활발하고 긍정적이다!라는 생각을 많이 했어! 그런 모습처럼 앞으로는 웃을 일만 가득했으면 좋겠다.. \n 맞다 가은이도 나랑 비슷한 꿈을 꾸고 있지! \n 우리 그 때, 전시회 보고 돌아오는 차 안에서 다짐했던 것처럼 꼭 성공하자!! \n 가은인 꼭 할 수 있을 거야 :)`);
+      } else if (number === 6) {
+        alert(`${number}번 : 서현이에게 \n 서현아! 말투부터 행동 하나하나 다 귀여운 귀요미다! \n (귀여운 귀요미(?)말이 이거 맞겠지..?) \n 진짜 아기 펭귄같아서 기여어 ㅠㅠ \n 프로그래밍 수업 때 너와 처음으로 대화를 해 본 것 같은데, 수업을 열심히 듣고 코딩을 할 때 나의 설명을 바로 알아듣고 척척 해내는 모습이 오.. 서현이에게 이 쪽(?)의 감각이 있다는 생각이 들었어! \n 우리, 비슷한 꿈을 꾸고 있는 것 같았는데, 꼭 꿈 이루길 바랄게! 분명 잘 해낼 수 있을 거야!`);
+      } else if (number === 7) {
+        alert(`${number}번 : 선영이에게 \n 선영아! 수학여행 가서 이야기를 나누면서 우리에게 꽤 공통점 많은 것 같아서, 진작 친해졌다면 좋았을 텐데 아쉽다는 생각을 많이 했어.. 과거의 내가 후회된다 ㅠㅠㅠ \n 일기 쓰는 사람도 처음 봤구.. 이야기를 많이 나누지도 못 했는데 한 해가 끝나버려서 너무 아쉬워.. \n 선영이도 꿈 꼭 이루길 바라구, 아 맞다, \n 개기월식 날에! 수빈이랑 윤영이랑은 이야기가 되었는데, 혹시 \n 너도 수능 끝나고 다 같이 나중에 별 보러 갈래?`);
+      
+      } else if (number === 9) {
+        alert(`${number}번 : 시온이에게 \n 시온아! 학기 초에는 엄청 활발하구 밝아서 소심한 내가 너한테 다가갈 수 있을까.. 싶었는데 결과적으로 잘 된 것 같어! \n 최근에 스트레스 많이 받았던 것 같아 마음 아픈데.. 넌 결과적으론 잘 될 거야 정말로, \n 전부터 생각했는데 넌 정말 친절한 것 같아! 은은하게 따뜻한, 가을에 내리는 금빛 햇살같았어! \n 그동안 네 덕에 많이 웃었던 것 같아 고마워! 우리반 분위기가 네 덕에 많이 밝았던 것 같아! :) 앞으로도 응원할테니깐 잘 지내야 해!`);
+      } else if (number === 10) {
+        alert(`${number}번 : 수빈이에게 \n 수빈아! 수학여행 가서 나랑 가장 많이 사진 찍은 친구 ㅋㅋㅋㅋ \n 너는 내가 힘들 때마다 영화에서 나오듯 도움을 준 것 같아! \n 그래서인지 너랑 함께한 기억은 특히 오래 가는 느낌이 들어! 또 좋은 기억도 많았구.. 너랑 하고 싶은 일도 많아! \n 너에겐 큰 일이 아니었을지라도, 내겐 정말 큰 도움이 되었어, 고마워.. \n 올해 내가 가장 고맙다고 말하고 싶은 사람이야 너는! ><* \n 올 한 해 잠깐 떨어져 지내겠지만 어른 돼서 우리 짠 하자! \n 계속 친구하기로 나랑 약속한 거다!! ><* 히힛`);
+      } else if (number === 11) {
+        alert(`${number}번 : 다연이에게 \n 다연아! 이 영상 다 네가 찍은 건데 출처를 밝혀야 하나 ㅋㅋㅋ <출처 다연이! ><*> 좋은 영상 많이 남겨줘서 고마워! \n  첫인상부터도 그렇게 느꼈는데 넌 정말 포근한 사람 같아! \n 말은 툭툭 재밌게(?)해도 상대방은 네가 누구보다 그 사람을 생각하고 있다는 걸 느낄 정도로! \n 나도 다정하게 대해 줘서 고마워! 꼭 언니랑 엄마 그 중간 어딘가(?)같았우 ㅋㅋㅋㅋ \n 우리 성대모사 달인님 앞으로는 아프지 말구 건강히 잘 지내야 해!`);
+
+      } else if (number === 13) {
+        alert(`${number}번 : 수민이에게 \n 수민아! 진짜 너무 친절한 수민이.. 우선은 내가 힘들었을 때 다독여 주어 정말 고맙다구 말해주고 싶어.. 그 날 감동받아서 일기에도 적어 두었거든,, \n 말은 수민이 네가 훨씬 더 이쁘게 하는걸! 너무 따뜻한 마음씨를 가진 것 같아.. \n 그리구 너랑은 조그만 추억들이 정말 많은 것 같아, 서현이랑 간 방탈출부터 밤바다에서 찍은 사진까지.. 항상 소중한 기억 한 편에 있어 주어서 고마워! 감기 조심하구, 넌 정말 좋은 사람이야! :)`);
+      } else if (number === 14) {
+        alert(`${number}번 : 윤영이에게 \n 윤영아! 학기 초 네가 내 앞자리 앉았을 때 눈치 보다가(?) 처음 인사했는데 목소리도 크고 말을 재밌게 하는 것 같았어! \n 틴메이커 고생 많았구, 그 일을 계기로 편하게 장난칠 수 있는 사람이 되어줘서 재밌오 ㅋㅋㅋ \n 또 도서관 가서 달을 본 일부터 여러 좋은 추억 만들어줘서 고마워! \n 내년에 반배정은 잠시 떨어지지만 수능 끝나면 망원경 사서 별 보러 다같이 가기! 내가 가서 무서운 이야기 해 줄게 ㅋㅋㅋ(?) \n 반장님도 정말 수고했어!`);
+      } else if (number === 15) {
+        alert(`${number}번 : 흑돼지들 \n 한 해 고생 많았어 다들! 고등학교 와서 너희 같은 착한 친구들을 만나서 좋았어, 진심으로! 다들 친절하게 대해줘서 고마워! 왜캐 다들 착한 거야 ㅠㅠㅠ 어른 되어서도 서로 잊지 말구 종종 연락하자!`);
+      }
+    }
+    
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="photos">
+      <div id="image1" class="photo-frame" onmouseover="hideText(1)" onmouseout="showText(1)" onclick="alertText(1)">
+        <span id="desc1" class="photo_description">유진이에게 ><</span>
+      </div>
+      <div id="image2" class="photo-frame" onmouseover="hideText(2)" onmouseout="showText(2)" onclick="alertText(2)">
+        <span id="desc2" class="photo_description">서연이에게 ><</span>
+      </div>
+      <div id="image3" class="photo-frame" onmouseover="hideText(3)" onmouseout="showText(3)" onclick="alertText(3)">
+        <span id="desc3" class="photo_description">민주에게 ><</span>
+      </div>
+      <div id="image4" class="photo-frame">
+        <video controls autoplay muted loop="" class="video">
+          <source src="./vdo4.mp4" type="video/mp4" >
+        </video>
+      </div>
+
+      <div id="image5" class="photo-frame" onmouseover="hideText(5)" onmouseout="showText(5)" onclick="alertText(5)">
+        <span id="desc5" class="photo_description">가은이에게 ><</span>
+      </div>
+      <div id="image6" class="photo-frame" onmouseover="hideText(6)" onmouseout="showText(6)" onclick="alertText(6)">
+        <span id="desc6" class="photo_description">서현이에게 ><</span>
+      </div>
+      <div id="image7" class="photo-frame" onmouseover="hideText(7)" onmouseout="showText(7)" onclick="alertText(7)">
+        <span id="desc7" class="photo_description">선영이에게 ><</span>
+      </div>
+
+      <div id="image8" class="photo-frame">
+        <video controls autoplay muted loop="" class="video">
+          <source src="./vdo8.mp4" type="video/mp4" >
+        </video>
+      </div>
+      <div id="image9" class="photo-frame" onmouseover="hideText(9)" onmouseout="showText(9)" onclick="alertText(9)">
+        <span id="desc9" class="photo_description">시온이에게 ><</span>
+      </div>
+      <div id="image10" class="photo-frame" onmouseover="hideText(10)" onmouseout="showText(10)" onclick="alertText(10)">
+        <span id="desc10" class="photo_description">수빈이에게 ><</span>
+      </div>
+      <div id="image11" class="photo-frame" onmouseover="hideText(11)" onmouseout="showText(11)" onclick="alertText(11)">
+        <span id="desc11" class="photo_description">다연이에게 ><</span>
+      </div>
+      <div id="image12" class="photo-frame">
+        <video controls autoplay muted loop="" class="video">
+          <source src="./vdo12.mp4" type="video/mp4" >
+        </video>
+      </div>
+
+      <div id="image13" class="photo-frame" onmouseover="hideText(13)" onmouseout="showText(13)" onclick="alertText(13)">
+        <span id="desc13" class="photo_description">수민이에게 ><</span>
+      </div>
+      <div id="image14" class="photo-frame" onmouseover="hideText(14)" onmouseout="showText(14)" onclick="alertText(14)">
+        <span id="desc14" class="photo_description">윤영이에게 ><</span>
+      </div>
+      <div id="image15" class="photo-frame" onmouseover="hideText(15)" onmouseout="showText(15)" onclick="alertText(15)">
+        <span id="desc15" class="photo_description">마지막으로 흑돼지들에게</span>
+      </div>
+      <div id="image8" class="photo-frame">
+        <video controls autoplay muted loop="" class="video">
+          <source src="./vdo16.mp4" type="video/mp4" >
+        </video>
+      </div>
+      <div class="footer">
+        <p class="f-title">그동안 즐거웠어</p>
+        <p class="f-date">2023.02.06</p>
+      </div>
+    </div>
+</body>
+
+</html>
