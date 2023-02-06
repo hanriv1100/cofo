@@ -45,6 +45,13 @@
       cursor: pointer;
     }
 
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+
     .footer {
       display: flex;
       flex-direction: column;
@@ -275,6 +282,9 @@
 
 <body>
   <div class="container">
+    <div class="header">
+      <p class="f-title">인생네컷아니16컷</p>
+    </div>
     <div class="photos">
       <div id="image1" class="photo-frame" onmouseover="hideText(1)" onmouseout="showText(1)" onclick="alertText(1)">
         <span id="desc1" class="photo_description">유진이에게 ><</span>
@@ -286,9 +296,7 @@
         <span id="desc3" class="photo_description">민주에게 ><</span>
       </div>
       <div id="image4" class="photo-frame">
-        <video controls autoplay muted loop="" class="video">
-          <source src="./vdo4.mp4" type="video/mp4" >
-        </video>
+        <iframe src="https://www.youtube.com/embed/ufh0GGt6meg?autoplay=1&mute=1" frameborder="0" class="video"></iframe>
       </div>
 
       <div id="image5" class="photo-frame" onmouseover="hideText(5)" onmouseout="showText(5)" onclick="alertText(5)">
@@ -302,9 +310,7 @@
       </div>
 
       <div id="image8" class="photo-frame">
-        <video controls autoplay muted loop="" class="video">
-          <source src="./vdo8.mp4" type="video/mp4" >
-        </video>
+        <iframe src="https://www.youtube.com/embed/oOOz6SUcXzI?autoplay=1&mute=1" frameborder="0" class="video"></iframe>
       </div>
       <div id="image9" class="photo-frame" onmouseover="hideText(9)" onmouseout="showText(9)" onclick="alertText(9)">
         <span id="desc9" class="photo_description">시온이에게 ><</span>
@@ -316,9 +322,7 @@
         <span id="desc11" class="photo_description">다연이에게 ><</span>
       </div>
       <div id="image12" class="photo-frame">
-        <video controls autoplay muted loop="" class="video">
-          <source src="./vdo12.mp4" type="video/mp4" >
-        </video>
+        <iframe src="https://www.youtube.com/embed/HuqJjV1Lm3k?autoplay=1&mute=1" frameborder="0" class="video"></iframe>
       </div>
 
       <div id="image13" class="photo-frame" onmouseover="hideText(13)" onmouseout="showText(13)" onclick="alertText(13)">
@@ -330,13 +334,11 @@
       <div id="image15" class="photo-frame" onmouseover="hideText(15)" onmouseout="showText(15)" onclick="alertText(15)">
         <span id="desc15" class="photo_description">마지막으로 흑돼지들에게</span>
       </div>
-      <div id="image8" class="photo-frame">
-        <video controls autoplay muted loop="" class="video">
-          <source src="./vdo16.mp4" type="video/mp4" >
-        </video>
+      <div id="image16" class="photo-frame">
+        <iframe src="https://www.youtube.com/embed/RjjPq9Xtk1A?autoplay=1&mute=1" frameborder="0" class="video"></iframe>
       </div>
       <div class="footer">
-        <p class="f-title">그동안 즐거웠어</p>
+        <p class="f-title">그동안 즐거웠어!</p>
         <p class="f-date">2023.02.06</p>
       </div>
     </div>
